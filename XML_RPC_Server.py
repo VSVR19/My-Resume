@@ -1,30 +1,41 @@
 from xmlrpc.server import SimpleXMLRPCServer
 from xmlrpc.server import SimpleXMLRPCRequestHandler
+#from SimpleXMLRPCServer import SimpleXMLRPCServer
 import xmlrpc.client
-
-client_count = 0
+import os
 
 try:
-	def is_even(num):
-		return num % 2 == 0
+    def is_even(num):
+        return num % 2 == 0
 
-	def connected_clients():
-		global client_count
-		client_count = client_count + 1
-		print("Connected with client number " + str(client_count))
-		return "Connected with client number " + str(client_count)
+    
+    def connected_clients(client_name):
+        print("Connected with client " + client_name)
+        return "Connected with server as " + client_name
 
-	def client_message():
-		return("Hi from Server")
+    def talk_toeach(client_message):
+        print("Message from client: " + client_message)
+        return "Server says Hi!"
 
-	server = SimpleXMLRPCServer(("127.0.0.1", 2347))
-	print("Listening on port 2347...")
+    def list_clientfiles(list_files):
+        file_list = os.listdir("C:\\Users\\Venkat\\Desktop\\Team_3_A02_submission")
+        print(file_list)
+        return file_list
 
-	server.register_function(is_even, "is_even")
-	server.register_function(connected_clients, "connected_clients")
-	server.register_function(client_message, "client_message")
-	
-	server.serve_forever()
+    def sendfile_client():
+        print("sendfile_client method")
+        return "sendfile_client method"
+        
 
+    server = SimpleXMLRPCServer(("127.0.0.1", 2347))
+    print("Listening on port 2347...")
+    server.register_function(is_even, "is_even")
+    server.register_function(connected_clients, "connected_clients")
+
+    server.register_function(talk_toeach, "talk_toeach")
+    server.register_function(list_clientfiles, "list_clientfiles")
+
+    server.serve_forever()
+    
 except:
-	print("Error logs caught by exception handlers")
+    print("Error logs caught by exception handlers")
