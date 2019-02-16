@@ -17,10 +17,19 @@ try:
         print("Message from client: " + client_message)
         return "Server says Hi!"
 
-    def list_clientfiles(list_files):
-        file_list = os.listdir("C:\\Users\\Venkat\\Desktop\\Team_3_A02_submission")
-        print(file_list)
-        return file_list
+    def list_clientfiles():
+        files_present = os.listdir("C:\\Users\\Venkat\\Desktop\\Team_3_A02_submission")
+        # str_files_present = ','.join(files_present)
+        # list_files_present = str_files_present.split(',')
+
+        # neat_list = [' {0} '.format(elem) for elem in list_files_present]
+
+        # for i in range(len(neat_list)):
+            # print(neat_list[i])
+        
+
+        # print(files_present)
+        return files_present
 
     def sendfile_client():
         print("sendfile_client method")

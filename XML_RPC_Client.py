@@ -15,9 +15,10 @@ client_message = input("Enter message for Server:")
 print(s.talk_toeach(client_message))
 
 list_files = input("Do you wanna list the files present in Sever? (0- no; 1- yes)")
-print(s.list_clientfiles(list_files))
+# print(s.list_clientfiles())
+file_list = []
+file_list = s.list_clientfiles()
+print("FILES AVAILABLE AT SERVER:")
 
-wish_file = input("Enter the file you wish to transfer")
-print("In sendfile_client Method")
-
-#print(type(list_files))
+for i in file_list:
+    print(i)
