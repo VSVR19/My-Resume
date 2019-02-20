@@ -51,7 +51,7 @@ print(s.readfile_client(display_file))
 # request_endTime = datetime.datetime.now()
 request_endTime = datetime.now().time()
 print("File read request received at {}".format(request_startTime))
-print("File read request received at {}".format(request_endTime))
+print("File read request completed at {}".format(request_endTime))
 
 roundTripTime = datetime.combine(date.min, request_endTime) - datetime.combine(date.min, request_startTime)
 print("Therefore, the Round Trip Time is {} seconds".format(roundTripTime))

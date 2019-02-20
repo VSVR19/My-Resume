@@ -1,0 +1,7 @@
+Date- Time Logic:
+
+https://stackoverflow.com/questions/415511/how-to-get-the-current-time-in-python
+https://www.saltycrane.com/blog/2008/06/how-to-get-current-date-and-time-in/
+https://tecadmin.net/get-current-date-time-python/
+https://stackoverflow.com/questions/5259882/subtract-two-times-in-python#
+https://stackoverflow.com/questions/12906402/type-object-datetime-datetime-has-no-attribute-datetime
