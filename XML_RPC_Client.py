@@ -2,6 +2,8 @@ from xmlrpc.server import SimpleXMLRPCServer
 from xmlrpc.server import SimpleXMLRPCRequestHandler
 import xmlrpc.client
 import sys
+import datetime
+from datetime import datetime, date
 
 client_name = "Viraat"
 
@@ -34,9 +36,22 @@ display_file = input("Enter the file you wish to read:")
 
 if display_file.strip() in file_list:
     print("File present in Server; will start read now")
+
+    # request_startTime = datetime.datetime.now()
+    request_startTime = datetime.now().time()
+    print("File read request received at {}".format(request_startTime))
+
 else:
     print("Please enter a file name from the above list; Goodbye!!")
     sys.exit()
 
 print("FILE DATA FROM SERVER")
 print(s.readfile_client(display_file))
+
+# request_endTime = datetime.datetime.now()
+request_endTime = datetime.now().time()
+print("File read request received at {}".format(request_startTime))
+print("File read request received at {}".format(request_endTime))
+
+roundTripTime = datetime.combine(date.min, request_endTime) - datetime.combine(date.min, request_startTime)
+print("Therefore, the Round Trip Time is {} seconds".format(roundTripTime))
